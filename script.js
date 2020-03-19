@@ -1,5 +1,6 @@
 console.clear();
 const sad = document.getElementById("sad");
+const happy = document.getElementById("happy");
 setInterval(upTime, 1000);
 
 function upTime() {
@@ -15,13 +16,14 @@ function onChange(evt) {
   let response = $(this).val();
   
   console.log(md5(response));
-  if (correct.toLowerCase() == response.toLowerCase()) {
+  if (correct == response) {
     $(this)
       .removeClass("incorrect")
       .addClass("correct");
     let theScore = Number($("#score").text());
     theScore = theScore + 1;
     $("#score").text(theScore);
+    happy.play()
   } else {
     if (Math.random() > 0.1) {
       sad.play();
